@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "forgemaster",
+	"version": "${version}",
+	"name": "Forgemaster",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Vulcan"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/forgemaster/forgemaster.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"aug.forgemaster.Forgemaster"
+		],
+		"fabric-datagen": [
+			"aug.forgemaster.ForgemasterDataGenerator"
+		],
+		"client": [
+			"aug.forgemaster.ForgemasterClient"
+		]
+	},
+	"mixins": [
+		"forgemaster.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
