@@ -3,7 +3,7 @@
 	"package": "aug.forgemaster.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin", "TutorialMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
