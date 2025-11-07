@@ -18,5 +18,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(ModTags.Items.FIRED_UP)
                 .add(ModItems.ATTACCA);
+                .add(Items.MACE);
+                .add(Items.BLAZE_ROD);
+    }
+
+    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(Tags.)
     }
 }

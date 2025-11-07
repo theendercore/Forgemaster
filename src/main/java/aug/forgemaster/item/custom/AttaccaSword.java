@@ -48,4 +48,11 @@ public class AttaccaSword extends Item {
     public AttaccaSword(Settings settings) {
         super(settings);
     }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TootltipContext context, List<Text> tooltip, TooltipType options) {
+        tooltip.add(Text.translatable("tooltip.forgemaster.attacca.tooltip"));
+        super.appendTooltip(stack, context, tooltip, options);
+    }
+
 }

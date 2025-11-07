@@ -9,9 +9,12 @@ import net.minecraft.util.Identifier;
 public class ModTags {
     public static class Items {
         public static final TagKey<Item> FIRED_UP = createTag("fired_up");
+        public static final TagKey<Item> HIDDEN_RECIPES = createTag("hidden_recipes");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(Forgemaster.MOD_ID, name));
         }
+
+
     }
 }
