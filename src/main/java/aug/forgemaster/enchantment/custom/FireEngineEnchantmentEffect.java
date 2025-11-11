@@ -1,124 +1,57 @@
 package aug.forgemaster.enchantment.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentEffectContext;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+
+import static com.mojang.blaze3d.platform.GlStateManager.Viewport.getX;
 
 public record FireEngineEnchantmentEffect() implements EnchantmentEntityEffect {
     public static final MapCodec<FireEngineEnchantmentEffect> CODEC = MapCodec.unit(FireEngineEnchantmentEffect::new);
 
     @Override
-    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
-        if (level == 1) {
-            //fire ring
-            Vec3d origin = getEyePos();
-            Vec3d radius = distanceFallen()/20;
+    public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d entityPos) {
+        //fire ring
+        int radius = (int) (user.fallDistance / 20);
 
-            for (int i = 2; i < radius; i++) {
-                int fireRadius = 3; // Radius of the fire ring
-                int fireCount = ; // Number of fire particles/entities to spawn
-                double angleStep = 360.0 // fireCount;
+        BlockPos center = user.getBlockPos();
 
-                for (int i = 0; i < fireCount; i++) {
-                    double angle = Math.toRadians(i * angleStep);
-                    double x = user.getX() + fireRadius * Math.cos(angle);
-                    double z = user.getZ() + fireRadius * Math.sin(angle);
-        
-                    // Use the ServerWorld.spawnParticles method for server-side particles
-                    if (world instanceof ServerWorld serverWorld) {
-                        serverWorld.spawnParticles(
-                        ParticleTypes.FLAME, // The particle type
-                        x, user.getY(), z, // Position (y is player's y)
-                        1, // Number of particles to spawn
-                        0, 0, 0, // Spread/offsets (zero for a precise ring)
-                        0.1 // Speed of particles
+        for (int x = -radius; x <= radius; x++) {
+            for (int z = -radius; z <= radius; z++) {
+                BlockPos pos = center.add(x, 0, z);
+
+                BlockState state = world.getBlockState(pos);
+                if (state.isSolidBlock(world, pos)) {
+                    continue;
+                }
+
+                while (!(state = world.getBlockState(pos.down())).isSolidBlock(world, pos.down()) && state.isReplaceable()) {
+                    pos = pos.down();
+                }
+
+                if (pos.isWithinDistance(center, radius)) {
+                    world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+                    if (Math.random() < 0.1) {
+                        world.spawnParticles(
+                                ParticleTypes.FLAME,
+                                pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5,
+                                1,
+                                0, 0, 0,
+                                0.1
                         );
                     }
-
-                    // Spawn a Fireball entity at each point
-                    FireballEntity fireball = new FireballEntity(EntityType.FIREBALL, world);
-                    fireball.setPos(x, user.getY(), z);
-                    fireball.setVelocity(1, 0.1, 0); // Give it a slight upwards velocity
-                    world.spawnEntity(fireball);
-
-                    // Alternatively, you could place fire blocks
-                    BlockPos firePos = new BlockPos((int)x, (int)user.getY(), (int)z);
-                    world.setBlockState(firePos, Blocks.FIRE.getDefaultState());
+                }
             }
-            //extra damage
-
-        } else if (level == 2) {
-            Vec3d origin = getEyePos();
-            Vec3d radius = distanceFallen()/15;
-
-            for (int i = 2; i < radius; i++) {
-                int fireRadius = 3; // Radius of the fire ring
-                int fireCount = ; // Number of fire particles/entities to spawn
-                double angleStep = 360.0 // fireCount;
-
-                for (int i = 0; i < fireCount; i++) {
-                    double angle = Math.toRadians(i * angleStep);
-                    double x = user.getX() + fireRadius * Math.cos(angle);
-                    double z = user.getZ() + fireRadius * Math.sin(angle);
-        
-                    // Use the ServerWorld.spawnParticles method for server-side particles
-                    if (world instanceof ServerWorld serverWorld) {
-                        serverWorld.spawnParticles(
-                        ParticleTypes.FLAME, // The particle type
-                        x, user.getY(), z, // Position (y is player's y)
-                        1, // Number of particles to spawn
-                        0, 0, 0, // Spread/offsets (zero for a precise ring)
-                        0.1 // Speed of particles
-                        );
-                    }
-
-                    // Spawn a Fireball entity at each point
-                    FireballEntity fireball = new FireballEntity(EntityType.FIREBALL, world);
-                    fireball.setPos(x, user.getY(), z);
-                    fireball.setVelocity(1, 0.1, 0); // Give it a slight upwards velocity
-                    world.spawnEntity(fireball);
-
-                    // Alternatively, you could place fire blocks
-                    BlockPos firePos = new BlockPos((int)x, (int)user.getY(), (int)z);
-                    world.setBlockState(firePos, Blocks.FIRE.getDefaultState());
-
-        } else if (level == 3) {
-            Vec3d origin = getEyePos();
-            Vec3d radius = distanceFallen()/10;
-
-            for (int i = 2; i < radius; i++) {
-                int fireRadius = 3; // Radius of the fire ring
-                int fireCount = ; // Number of fire particles/entities to spawn
-                double angleStep = 360.0 // fireCount;
-
-                for (int i = 0; i < fireCount; i++) {
-                    double angle = Math.toRadians(i * angleStep);
-                    double x = user.getX() + fireRadius * Math.cos(angle);
-                    double z = user.getZ() + fireRadius * Math.sin(angle);
-        
-                    // Use the ServerWorld.spawnParticles method for server-side particles
-                    if (world instanceof ServerWorld serverWorld) {
-                        serverWorld.spawnParticles(
-                        ParticleTypes.FLAME, // The particle type
-                        x, user.getY(), z, // Position (y is player's y)
-                        1, // Number of particles to spawn
-                        0, 0, 0, // Spread/offsets (zero for a precise ring)
-                        0.1 // Speed of particles
-                        );
-                    }
-
-                    // Spawn a Fireball entity at each point
-                    FireballEntity fireball = new FireballEntity(EntityType.FIREBALL, world);
-                    fireball.setPos(x, user.getY(), z);
-                    fireball.setVelocity(1, 0.1, 0); // Give it a slight upwards velocity
-                    world.spawnEntity(fireball);
-
-                    // Alternatively, you could place fire blocks
-                    BlockPos firePos = new BlockPos((int)x, (int)user.getY(), (int)z);
-                    world.setBlockState(firePos, Blocks.FIRE.getDefaultState());
         }
     }
 
@@ -127,3 +60,6 @@ public record FireEngineEnchantmentEffect() implements EnchantmentEntityEffect {
         return CODEC;
     }
 }
+
+
+

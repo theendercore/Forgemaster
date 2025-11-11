@@ -1,6 +1,7 @@
 package aug.forgemaster;
 
 import aug.forgemaster.effect.ModEffects;
+import aug.forgemaster.enchantment.ModEnchantmentEffects;
 import aug.forgemaster.item.ModItemGroups;
 import aug.forgemaster.item.ModItems;
 import net.fabricmc.api.ModInitializer;
