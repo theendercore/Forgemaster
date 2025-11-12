@@ -1,8 +1,6 @@
 package aug.forgemaster.enchantment;
 
 import aug.forgemaster.Forgemaster;
-import aug.forgemaster.datagen.ModItemTagProvider;
-import aug.forgemaster.enchantment.custom.FireEngineEnchantmentEffect;
 import aug.forgemaster.util.ModTags;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -12,12 +10,11 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
 
 public class ModEnchantments {
 
     public static final RegistryKey<Enchantment> FIRE_ENGINE =
-            RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Forgemaster.MOD_ID, "fire_engine"));
+            RegistryKey.of(RegistryKeys.ENCHANTMENT, Forgemaster.id("fire_engine"));
 
     public static void bootstrap(Registerable<Enchantment> registerable) {
         var enchantments = registerable.getRegistryLookup(RegistryKeys.ENCHANTMENT);

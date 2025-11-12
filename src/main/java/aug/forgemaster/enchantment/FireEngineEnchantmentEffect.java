@@ -1,34 +1,16 @@
-package aug.forgemaster.enchantment.custom;
+package aug.forgemaster.enchantment;
 
-import aug.forgemaster.Forgemaster;
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentEffectContext;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Arm;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
-import org.apache.http.FormattedHeader;
-
-import java.util.EventObject;
-
-import static com.mojang.blaze3d.platform.GlStateManager.Viewport.getX;
-import static net.minecraft.item.MaceItem.shouldDealAdditionalDamage;
 
 public record FireEngineEnchantmentEffect() implements EnchantmentEntityEffect {
     public static final MapCodec<FireEngineEnchantmentEffect> CODEC = MapCodec.unit(FireEngineEnchantmentEffect::new);

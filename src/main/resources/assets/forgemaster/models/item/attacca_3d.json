@@ -1,0 +1,7 @@
+{
+  "parent": "forgemaster:item/large_item",
+  "gui_light": "front",
+  "textures": {
+    "layer0": "forgemaster:item/attacca_3d"
+  }
+}

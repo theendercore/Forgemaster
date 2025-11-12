@@ -11,7 +11,7 @@ public class ModTags {
         public static final TagKey<Item> FIRED_UP = createTag("fired_up");
 
         private static TagKey<Item> createTag(String name) {
-            return TagKey.of(RegistryKeys.ITEM, Identifier.of(Forgemaster.MOD_ID, name));
+            return TagKey.of(RegistryKeys.ITEM, Forgemaster.id(name));
         }
 
 

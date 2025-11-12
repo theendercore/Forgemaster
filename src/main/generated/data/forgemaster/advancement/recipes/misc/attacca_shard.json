@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shard_of_attacca": {
+    "has_attacca_shard": {
       "conditions": {
         "items": [
           {
-            "items": "forgemaster:shard_of_attacca"
+            "items": "forgemaster:attacca_shard"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "forgemaster:broken_blade_of_attacca"
+        "recipe": "forgemaster:attacca_shard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_shard_of_attacca"
+      "has_attacca_shard"
     ]
   ],
   "rewards": {
     "recipes": [
-      "forgemaster:broken_blade_of_attacca"
+      "forgemaster:attacca_shard"
     ]
   }
 }

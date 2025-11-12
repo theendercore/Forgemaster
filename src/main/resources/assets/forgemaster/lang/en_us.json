@@ -1,6 +1,7 @@
 {
-    "item.forgemaster.attacca_shard": "Shard of Attacca",
-    "item.forgemaster.broken_blade_of_attacca": "Broken Blade of Attaca",
+    "block.forgemaster.attacca_shard": "Attacca Shard",
+    "item.forgemaster.broken_attacca": "Broken Attacca",
     "item.forgemaster.attacca": "Attacca",
-    "enchantment.forgemaster.fire_engine": "Fire Engine"
+    "enchantment.forgemaster.fire_engine": "Fire Engine",
+    "itemGroup.forgemaster.forgemaster": "Forgemaster"
 }

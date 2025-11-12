@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "S": {
-      "item": "forgemaster:shard_of_attacca"
+      "item": "forgemaster:attacca_shard"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "forgemaster:broken_blade_of_attacca"
+    "id": "forgemaster:broken_attacca"
   }
 }

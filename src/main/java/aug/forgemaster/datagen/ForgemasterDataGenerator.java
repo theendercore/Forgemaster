@@ -1,14 +1,9 @@
-package aug.forgemaster;
+package aug.forgemaster.datagen;
 
-import aug.forgemaster.datagen.ModItemTagProvider;
-import aug.forgemaster.datagen.ModModelProvider;
-import aug.forgemaster.datagen.ModRecipeProvider;
-import aug.forgemaster.datagen.ModRegistryDataGeneration;
 import aug.forgemaster.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 
 public class ForgemasterDataGenerator implements DataGeneratorEntrypoint {
@@ -20,6 +15,7 @@ public class ForgemasterDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModRegistryDataGeneration::new);
+		pack.addProvider(ModBlockLootTableProvider::new);
 	}
 
 	@Override

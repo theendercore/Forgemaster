@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "forgemaster:item/broken_blade_of_attacca"
-  }
-}

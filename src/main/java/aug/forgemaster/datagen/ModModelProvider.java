@@ -1,5 +1,6 @@
 package aug.forgemaster.datagen;
 
+import aug.forgemaster.block.ModBlocks;
 import aug.forgemaster.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -13,15 +14,12 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
+    public void generateBlockStateModels(BlockStateModelGenerator gen) {
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.ATTACCA, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.SHARD_OF_ATTACCA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BROKEN_BLADE_OF_ATTACCA, Models.GENERATED);
+    public void generateItemModels(ItemModelGenerator gen) {
+        gen.register(ModBlocks.ATTACCA_SHARD.asItem(), Models.GENERATED);
+        gen.register(ModItems.BROKEN_ATTACCA, Models.GENERATED);
     }
 }

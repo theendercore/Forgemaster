@@ -1,9 +1,7 @@
-// 1.21.1	2025-11-10T22:16:38.8695612	Forgemaster/Recipes
-ec78c68855d3205898bdfa3a56a6847f21ce10aa data\forgemaster\advancement\recipes\tools\broken_blade_of_attacca.json
-2b11efc8bdf29b248f42fb1da8b6458eeb98e1c3 data\forgemaster\advancement\recipes\tools\netherite_upgrade_template_nc.json
-a25505954c550f10aa91976941fa7e62e86c6aa3 data\forgemaster\advancement\recipes\combat\attacca.json
-388b307208a51d9f360a100ae3d051ded1e460a9 data\forgemaster\recipe\shard_of_attacca.json
-1f21373f8813e549c2f3b77381bb1c846af108c2 data\forgemaster\recipe\netherite_upgrade_template_nc.json
-51a756698a1c9ef92e22df101e1f99e990a1b763 data\forgemaster\recipe\attacca.json
-5f2b229f51c986e0a8953b286fead3bb0f7389c2 data\forgemaster\recipe\broken_blade_of_attacca.json
-7119526153773cabe00e47573f877e1bdf8aed28 data\forgemaster\advancement\recipes\misc\shard_of_attacca.json
+// 1.21.1	2025-11-11T20:09:25.4997548	Forgemaster/Recipes
+98489e7284b95196b9aa8bbacdfdfcb75ed3a748 data\forgemaster\recipe\attacca_shard.json
+c55b768a424f3b53f78d341be1ef460933c042e5 data\forgemaster\advancement\recipes\misc\attacca_shard.json
+123a2544e64e7df078aef09947f5bf42d675625e data\forgemaster\recipe\broken_attacca.json
+fcd0f68fa125c0fabb68d5b5bb911f20240a42fe data\forgemaster\recipe\attacca.json
+5494616f0427a4a3bd69f87832dc778d6e6dda0e data\forgemaster\advancement\recipes\combat\attacca.json
+8fee6363a35a91fe30cef735b070f6cdc06c120d data\forgemaster\advancement\recipes\tools\broken_attacca.json

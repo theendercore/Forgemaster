@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_ingot": {
+    "has_attacca_shard": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:netherite_ingot"
+            "items": "forgemaster:attacca_shard"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "forgemaster:netherite_upgrade_template_nc"
+        "recipe": "forgemaster:broken_attacca"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_ingot"
+      "has_attacca_shard"
     ]
   ],
   "rewards": {
     "recipes": [
-      "forgemaster:netherite_upgrade_template_nc"
+      "forgemaster:broken_attacca"
     ]
   }
 }

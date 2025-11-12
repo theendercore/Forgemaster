@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_broken_blade_of_attacca": {
+    "has_broken_attacca": {
       "conditions": {
         "items": [
           {
-            "items": "forgemaster:broken_blade_of_attacca"
+            "items": "forgemaster:broken_attacca"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_broken_blade_of_attacca"
+      "has_broken_attacca"
     ]
   ],
   "rewards": {

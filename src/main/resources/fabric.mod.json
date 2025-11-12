@@ -19,7 +19,7 @@
 			"aug.forgemaster.Forgemaster"
 		],
 		"fabric-datagen": [
-			"aug.forgemaster.ForgemasterDataGenerator"
+          "aug.forgemaster.datagen.ForgemasterDataGenerator"
 		],
 		"client": [
 			"aug.forgemaster.ForgemasterClient"
