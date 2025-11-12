@@ -21,19 +21,20 @@ public class ModEnchantments {
         var items = registerable.getRegistryLookup(RegistryKeys.ITEM);
 
         register(registerable, FIRE_ENGINE, Enchantment.builder(Enchantment.definition(
-            items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                items.getOrThrow(ModTags.Items.FIRED_UP),
-                3,
-                5,
-                Enchantment.leveledCost(5, 7),
-                Enchantment.leveledCost(25, 9),
-                2,
-                AttributeModifierSlot.MAINHAND))
+                        items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        items.getOrThrow(ModTags.Items.FIRED_UP),
+                        3,
+                        5,
+                        Enchantment.leveledCost(5, 7),
+                        Enchantment.leveledCost(25, 9),
+                        2,
+                        AttributeModifierSlot.MAINHAND
+                ))
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM,
                         new FireEngineEnchantmentEffect()));
     }
-        
+
 
     private static void register(Registerable<Enchantment> registry, RegistryKey<Enchantment> key, Enchantment.Builder builder) {
         registry.register(key, builder.build(key.getValue()));

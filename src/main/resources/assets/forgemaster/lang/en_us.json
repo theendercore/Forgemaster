@@ -3,5 +3,6 @@
     "item.forgemaster.broken_attacca": "Broken Attacca",
     "item.forgemaster.attacca": "Attacca",
     "enchantment.forgemaster.fire_engine": "Fire Engine",
-    "itemGroup.forgemaster.forgemaster": "Forgemaster"
+    "itemGroup.forgemaster.forgemaster": "Forgemaster",
+    "effect.forgemaster.scorched": "Scorched"
 }

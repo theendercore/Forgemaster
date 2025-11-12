@@ -20,7 +20,7 @@ public record FireEngineEnchantmentEffect() implements EnchantmentEntityEffect {
 
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d entityPos) {
-        if (context.owner() != null) {
+        if (context.owner() != null && context.owner().fallDistance > 5) {
             int radius = (int) (level * (context.owner().fallDistance / 10)) + 3;
 
             for (LivingEntity target : context.owner().getWorld().getNonSpectatingEntities(LivingEntity.class, Box.from(context.owner().getPos()).expand(radius))) {

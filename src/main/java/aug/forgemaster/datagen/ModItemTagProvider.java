@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,7 +19,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(ModTags.Items.FIRED_UP)
                 .add(ModItems.ATTACCA)
-                .add(Items.MACE)
-                .add(Items.BLAZE_ROD);
+                .add(Items.MACE);
+        getOrCreateTagBuilder(ItemTags.SWORDS)
+                .add(ModItems.ATTACCA);
     }
 }

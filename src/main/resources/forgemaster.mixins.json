@@ -3,7 +3,8 @@
   "package": "aug.forgemaster.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "CheckCritHitMixin"
+    "CheckCritHitMixin",
+    "DisableRegenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -12,6 +13,7 @@
     "requireAnnotations": true
   },
   "client": [
+    "HeartTypeMixin",
     "ItemRendererMixin",
     "ModelLoaderMixin"
   ]
