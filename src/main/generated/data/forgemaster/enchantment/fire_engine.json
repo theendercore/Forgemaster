@@ -8,7 +8,12 @@
       {
         "affected": "victim",
         "effect": {
-          "type": "forgemaster:fire_engine"
+          "type": "forgemaster:fire_engine",
+          "radius": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 1.0
+          }
         },
         "enchanted": "attacker"
       }

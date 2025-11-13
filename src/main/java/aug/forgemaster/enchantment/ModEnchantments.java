@@ -5,6 +5,7 @@ import aug.forgemaster.util.ModTags;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelBasedValue;
 import net.minecraft.enchantment.effect.EnchantmentEffectTarget;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -32,7 +33,7 @@ public class ModEnchantments {
                 ))
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM,
-                        new FireEngineEnchantmentEffect()));
+                        new FireEngineEnchantmentEffect(EnchantmentLevelBasedValue.linear(1))));
     }
 
 
