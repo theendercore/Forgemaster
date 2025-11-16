@@ -11,7 +11,7 @@ public class ModItems {
 
     public static final Item BROKEN_ATTACCA = registerItem("broken_attacca", new Item(new Item.Settings().fireproof()));
 
-    public static final Item ATTACCA = registerItem("attacca", new AttaccaSword(ToolMaterials.NETHERITE, new Item.Settings().fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -3.2f))));
+    public static final Item ATTACCA = registerItem("attacca", new AttaccaItem(ToolMaterials.NETHERITE, new Item.Settings().fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -3.2f)).component(ModItemComponentTypes.ATTACCA_CHARGE, 0)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Forgemaster.id(name), item);

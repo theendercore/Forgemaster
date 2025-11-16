@@ -1,6 +1,5 @@
 package aug.forgemaster.mixin;
 
-import aug.forgemaster.effect.ModEffects;
 import aug.forgemaster.item.ModItems;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.block.BlockState;
@@ -8,7 +7,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -39,10 +37,6 @@ public abstract class CheckCritHitMixin extends LivingEntity {
     private void attack(Entity target, CallbackInfo ci, @Local(ordinal = 2) boolean isCritical) {
         if (isCritical && getWeaponStack().isOf(ModItems.ATTACCA) && !getWorld().isClient && !getItemCooldownManager().isCoolingDown(ModItems.ATTACCA)) {
             getItemCooldownManager().set(ModItems.ATTACCA, 60);
-
-            if (target instanceof LivingEntity living) {
-                living.addStatusEffect(new StatusEffectInstance(ModEffects.SCORCHED, 100, 1, false, true, true));
-            }
 
             Vec3d origin = getEyePos();
             Vec3d dir = target.getEyePos().subtract(origin).normalize();

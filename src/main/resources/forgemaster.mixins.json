@@ -3,8 +3,11 @@
   "package": "aug.forgemaster.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BlockFireTicksMixin",
+    "BonusAttackDamageMixin",
     "CheckCritHitMixin",
-    "DisableRegenMixin"
+    "DisableRegenMixin",
+    "EntityFireTicksMixin"
   ],
   "injectors": {
     "defaultRequire": 1

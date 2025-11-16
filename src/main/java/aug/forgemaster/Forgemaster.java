@@ -3,12 +3,13 @@ package aug.forgemaster;
 import aug.forgemaster.block.ModBlocks;
 import aug.forgemaster.effect.ModEffects;
 import aug.forgemaster.enchantment.ModEnchantmentEffects;
+import aug.forgemaster.item.ModItemComponentTypes;
 import aug.forgemaster.item.ModItemGroups;
 import aug.forgemaster.item.ModItems;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -29,11 +30,12 @@ public class Forgemaster implements ModInitializer {
 		ModItemGroups.register();
 		ModEffects.register();
 		ModEnchantmentEffects.register();
+		ModItemComponentTypes.register();
 
 		LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
-            if (key.getValue().toString().equals("minecraft:gameplay/piglin_bartering")) {
-                builder.modifyPools(pool -> pool.with(ItemEntry.builder(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).weight(5)));
-            }
+			if (key.equals(LootTables.PIGLIN_BARTERING_GAMEPLAY)) {
+				builder.modifyPools(pool -> pool.with(ItemEntry.builder(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).weight(5)));
+			}
 		});
 	}
 }
