@@ -24,7 +24,6 @@ public record FireEngineEnchantmentEffect(EnchantmentLevelBasedValue radiusMulti
         if (context.owner() != null && context.owner().fallDistance > 5) {
             int radius = (int) (radiusMultiplier.getValue(level) * (context.owner().fallDistance / 10)) + 3;
 
-
             for (LivingEntity target : context.owner().getWorld().getNonSpectatingEntities(LivingEntity.class, Box.from(context.owner().getPos()).expand(radius))) {
                 if (target != context.owner()) {
                     target.addStatusEffect(new StatusEffectInstance(ModEffects.SPARKED, 400), context.owner());
@@ -34,22 +33,27 @@ public record FireEngineEnchantmentEffect(EnchantmentLevelBasedValue radiusMulti
             BlockPos center = user.getBlockPos();
 
             for (int x = -radius; x <= radius; x++) {
+                blocks:
                 for (int z = -radius; z <= radius; z++) {
                     BlockPos pos = center.add(x, 0, z);
                     BlockState state = world.getBlockState(pos);
 
                     if (!state.isReplaceable() && state.isSolidBlock(world, pos)) {
-                        while (!(state = world.getBlockState(pos.up())).isSolidBlock(world, pos.up()) && state.isReplaceable()) {
+                        while ((state = world.getBlockState(pos)).isSolidBlock(world, pos) && !state.isReplaceable()) {
                             pos = pos.up();
 
                             if (!pos.isWithinDistance(center, radius)) {
-                                break;
+                                continue blocks;
                             }
                         }
-                    }
+                    } else {
+                        while (!(state = world.getBlockState(pos.down())).isSolidBlock(world, pos.down()) && state.isReplaceable()) {
+                            pos = pos.down();
 
-                    while (!(state = world.getBlockState(pos.down())).isSolidBlock(world, pos.down()) && state.isReplaceable()) {
-                        pos = pos.down();
+                            if (!pos.isWithinDistance(center, radius)) {
+                                continue blocks;
+                            }
+                        }
                     }
 
                     if (pos.isWithinDistance(center, radius)) {

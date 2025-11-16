@@ -9,8 +9,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,9 +25,11 @@ public abstract class EntityFireTicksMixin {
     @Unique
     public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
 
-    @Shadow public abstract boolean damage(DamageSource source, float amount);
+    @Shadow
+    public abstract boolean damage(DamageSource source, float amount);
 
-    @Shadow public abstract DamageSources getDamageSources();
+    @Shadow
+    public abstract DamageSources getDamageSources();
 
     @Inject(
             method = "baseTick",
@@ -41,7 +43,7 @@ public abstract class EntityFireTicksMixin {
             ItemStack stack = living.getAttacker().getMainHandStack();
 
             if (hasStatusEffect(ModEffects.SPARKED)) {
-                this.damage(this.getDamageSources().onFire(), 1.5f);
+                damage(getDamageSources().onFire(), 1.5f);
             }
 
             if (stack.isOf(ModItems.ATTACCA)) {

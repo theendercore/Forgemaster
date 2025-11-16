@@ -1,29 +1,29 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.forgemaster.fire_engine"
+    "translate": "enchantment.forgemaster.coolant_system"
   },
   "effects": {
     "minecraft:post_attack": [
       {
-        "affected": "victim",
+        "affected": "attacker",
         "effect": {
-          "type": "forgemaster:fire_engine",
-          "radius": {
-            "type": "minecraft:linear",
-            "base": 1.0,
-            "per_level_above_first": 1.0
-          }
+          "type": "minecraft:apply_mob_effect",
+          "max_amplifier": 1.0,
+          "max_duration": 30.0,
+          "min_amplifier": 1.0,
+          "min_duration": 30.0,
+          "to_apply": "forgemaster:sparked"
         },
         "enchanted": "attacker"
       }
     ]
   },
   "max_cost": {
-    "base": 25,
-    "per_level_above_first": 9
+    "base": 5,
+    "per_level_above_first": 7
   },
-  "max_level": 5,
+  "max_level": 1,
   "min_cost": {
     "base": 5,
     "per_level_above_first": 7

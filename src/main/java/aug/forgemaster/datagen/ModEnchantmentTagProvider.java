@@ -18,6 +18,6 @@ public class ModEnchantmentTagProvider extends FabricTagProvider<Enchantment> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(EnchantmentTags.IN_ENCHANTING_TABLE)
-                .add(ModEnchantments.FIRE_ENGINE);
+                .add(ModEnchantments.FIRE_ENGINE, ModEnchantments.COOLANT_SYSTEM);
     }
 }
