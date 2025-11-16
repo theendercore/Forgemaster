@@ -12,6 +12,9 @@ public class ModEffects {
     public static final RegistryEntry<StatusEffect> SCORCHED = registerStatusEffect("scorched",
             new ScorchedEffect(StatusEffectCategory.HARMFUL, 0x511515));
 
+    public static final RegistryEntry<StatusEffect> SPARKED = registerStatusEffect("sparked",
+            new ScorchedEffect(StatusEffectCategory.HARMFUL, 0x511515));
+
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Forgemaster.id(name), statusEffect);
     }

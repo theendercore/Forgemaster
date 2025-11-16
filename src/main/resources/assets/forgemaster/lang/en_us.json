@@ -5,5 +5,6 @@
     "enchantment.forgemaster.fire_engine": "Fire Engine",
     "enchantment.forgemaster.fire_engine.desc": "Fills the area with fire when hitting an entity from a high fall distance",
     "itemGroup.forgemaster.forgemaster": "Forgemaster",
-    "effect.forgemaster.scorched": "Scorched"
+    "effect.forgemaster.scorched": "Scorched",
+    "effect.forgemaster.sparked": "Sparked"
 }

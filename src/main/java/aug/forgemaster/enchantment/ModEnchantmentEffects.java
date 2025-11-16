@@ -11,6 +11,9 @@ public class ModEnchantmentEffects {
     public static final MapCodec<? extends EnchantmentEntityEffect> FIRE_ENGINE =
         registerEntityEffect("fire_engine", FireEngineEnchantmentEffect.CODEC);
 
+    public static final MapCodec<? extends EnchantmentEntityEffect> COOLANT_SYSTEM =
+            registerEntityEffect("coolant_system", CoolantSystemEnchantmentEffect.CODEC);
+
     private static MapCodec<? extends EnchantmentEntityEffect> 
     registerEntityEffect(String name, MapCodec<? extends EnchantmentEntityEffect> codec) {
 
