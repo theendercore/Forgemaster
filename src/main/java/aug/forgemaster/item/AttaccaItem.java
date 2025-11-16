@@ -9,6 +9,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import org.lwjgl.glfw.GLFW;
 
 public class AttaccaItem extends SwordItem implements DualModelItem {
     public static final int MAX_CHARGE = 50;
@@ -52,11 +53,23 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
             return super.getItemBarStep(stack);
         }
 
-        return MathHelper.clamp(Math.round(13 - charge * 13f / MAX_CHARGE), 0, 13);
+        return MathHelper.clamp(Math.round(charge * 13f / MAX_CHARGE), 0, 13);
     }
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        return stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) == 0 ? super.getItemBarColor(stack) : 0xFFF48522;
+        int charge = stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0);
+
+        if (charge == 0) {
+            return super.getItemBarColor(stack);
+        }
+
+        if (charge >= MAX_CHARGE) {
+            float blend = (float) Math.sin(GLFW.glfwGetTime() * 4) / 2 + 0.5f;
+
+            return (MathHelper.lerp(blend, 0xF8, 0xAF) << 16) | (MathHelper.lerp(blend, 0x9E, 0x40) << 8) | (MathHelper.lerp(blend, 0x44, 0x00));
+        }
+
+        return 0xFFF48522;
     }
 }

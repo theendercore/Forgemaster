@@ -44,7 +44,7 @@ public class ModEnchantments {
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         3,
-                        1,
+                        3,
                         Enchantment.leveledCost(5, 7),
                         Enchantment.leveledCost(5, 7),
                         2,
@@ -54,8 +54,8 @@ public class ModEnchantments {
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.ATTACKER,
                         new ApplyMobEffectEnchantmentEffect(
                                 RegistryEntryList.of(StatusEffects.FIRE_RESISTANCE),
-                                EnchantmentLevelBasedValue.constant(30),
-                                EnchantmentLevelBasedValue.constant(30),
+                                EnchantmentLevelBasedValue.linear(10, 10),
+                                EnchantmentLevelBasedValue.linear(10, 10),
                                 EnchantmentLevelBasedValue.constant(0),
                                 EnchantmentLevelBasedValue.constant(0)
                         )));
