@@ -1,5 +1,6 @@
 package aug.forgemaster.mixin;
 
+import aug.forgemaster.enchantment.ModEnchantmentEffects;
 import aug.forgemaster.item.AttaccaItem;
 import aug.forgemaster.item.ModItemComponentTypes;
 import aug.forgemaster.item.ModItems;
@@ -26,7 +27,7 @@ public class AbstractFireBlockMixin {
         if ((Object) this instanceof LivingEntity living && living.getAttacker() != null) {
             ItemStack stack = living.getAttacker().getMainHandStack();
 
-            if (stack.isOf(ModItems.ATTACCA)) {
+            if (stack.isOf(ModItems.ATTACCA) && ModEnchantmentEffects.getAffannato(stack) > 0) {
                 stack.apply(ModItemComponentTypes.ATTACCA_CHARGE, 0, i -> MathHelper.clamp(i + 1, 0, AttaccaItem.MAX_CHARGE));
                 living.getAttacker().setStackInHand(Hand.MAIN_HAND, stack);
             }

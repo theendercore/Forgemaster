@@ -1,10 +1,10 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.forgemaster.fire_engine"
+    "translate": "enchantment.forgemaster.affannato"
   },
   "effects": {
-    "forgemaster:fire_engine_strength": {
+    "forgemaster:affannato_strength": {
       "type": "minecraft:add",
       "value": {
         "type": "minecraft:linear",

@@ -6,8 +6,7 @@
     "AbstractFireBlockMixin",
     "EntityMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin",
-    "SwordItemMixin"
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

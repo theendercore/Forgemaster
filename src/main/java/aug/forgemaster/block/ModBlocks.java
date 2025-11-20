@@ -4,15 +4,20 @@ import aug.forgemaster.Forgemaster;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.text.Text;
+
+import java.util.List;
 
 public class ModBlocks {
 
-    public static final Block ATTACCA_SHARD = registerBlock("attacca_shard", new AttaccaShardBlock(AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.NETHERITE).noCollision()), new Item.Settings().fireproof());
+    public static final Block ATTACCA_SHARD = registerBlock("attacca_shard", new AttaccaShardBlock(AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.NETHERITE).noCollision()), new Item.Settings().fireproof().component(DataComponentTypes.LORE, new LoreComponent(List.of(Text.translatable("block.forgemaster.attacca_shard.desc")))));
     public static final Block GREEK_FIRE = registerBlock("greek_fire", new GreekFireBlock(AbstractBlock.Settings.copy(Blocks.FIRE)));
 
     private static Block registerBlock(String name, Block block) {

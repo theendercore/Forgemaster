@@ -30,18 +30,21 @@ public class GreekFireBlock extends AbstractFireBlock {
         int charge = state.get(CHARGE);
 
         if (charge <= 1) {
-            System.out.println("clear");
             world.setBlockState(pos, Blocks.AIR.getDefaultState());
         } else {
+            BlockState newState = state.with(CHARGE, charge - 1);
+            world.setBlockState(pos, newState, Block.NO_REDRAW);
             world.scheduleBlockTick(pos, this, 20);
-            world.setBlockState(pos, state.with(CHARGE, charge - 1));
         }
     }
 
     @Override
     protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         super.onBlockAdded(state, world, pos, oldState, notify);
-        world.scheduleBlockTick(pos, this, 20);
+
+        if (!oldState.isOf(this)) {
+            world.scheduleBlockTick(pos, this, 20);
+        }
     }
 
     @Override

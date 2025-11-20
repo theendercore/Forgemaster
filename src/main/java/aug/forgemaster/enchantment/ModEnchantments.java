@@ -17,16 +17,16 @@ import net.minecraft.registry.entry.RegistryEntryList;
 
 public class ModEnchantments {
 
-    public static final RegistryKey<Enchantment> FIRE_ENGINE =
-            RegistryKey.of(RegistryKeys.ENCHANTMENT, Forgemaster.id("fire_engine"));
+    public static final RegistryKey<Enchantment> AFFANNATO =
+            RegistryKey.of(RegistryKeys.ENCHANTMENT, Forgemaster.id("affannato"));
 
-    public static final RegistryKey<Enchantment> COOLANT_SYSTEM =
-            RegistryKey.of(RegistryKeys.ENCHANTMENT, Forgemaster.id("coolant_system"));
+    public static final RegistryKey<Enchantment> COMODO_CON_FUOCO =
+            RegistryKey.of(RegistryKeys.ENCHANTMENT, Forgemaster.id("comodo_con_fuoco"));
 
     public static void bootstrap(Registerable<Enchantment> registerable) {
         var items = registerable.getRegistryLookup(RegistryKeys.ITEM);
 
-        register(registerable, FIRE_ENGINE, Enchantment.builder(Enchantment.definition(
+        register(registerable, AFFANNATO, Enchantment.builder(Enchantment.definition(
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         3,
@@ -36,9 +36,9 @@ public class ModEnchantments {
                         2,
                         AttributeModifierSlot.MAINHAND
                 ))
-                        .addNonListEffect(ModEnchantmentEffects.FIRE_ENGINE_STRENGTH, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(1, 0.5f))));
+                        .addNonListEffect(ModEnchantmentEffects.AFFANNATO_STRENGTH, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(1, 0.5f))));
 
-        register(registerable, COOLANT_SYSTEM, Enchantment.builder(Enchantment.definition(
+        register(registerable, COMODO_CON_FUOCO, Enchantment.builder(Enchantment.definition(
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         items.getOrThrow(ModTags.Items.FIRED_UP),
                         3,

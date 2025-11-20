@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:fire_aspect",
+    {
+      "id": "enchancement:frozen",
+      "required": false
+    }
+  ]
+}

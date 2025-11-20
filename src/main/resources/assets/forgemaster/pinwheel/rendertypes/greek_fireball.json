@@ -1,0 +1,23 @@
+{
+  "format": "POSITION_COLOR",
+  "mode": "QUADS",
+  "bufferSize": "TRANSIENT",
+  "sort": false,
+  "layers": [
+    {
+      "type": "veil:shader",
+      "name": "forgemaster:greek_fireball"
+    },
+    {
+      "type": "minecraft:cull"
+    },
+    {
+      "type": "minecraft:lightmap"
+    },
+    {
+      "type": "minecraft:write_mask",
+      "color": true,
+      "depth": true
+    }
+  ]
+}
