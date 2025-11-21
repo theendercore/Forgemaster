@@ -4,7 +4,6 @@ import aug.forgemaster.block.GreekFireBlock;
 import aug.forgemaster.block.ModBlocks;
 import aug.forgemaster.item.AttaccaItem;
 import aug.forgemaster.particle.GreekFireParticleEffect;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SideShapeType;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -78,9 +77,11 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
                         float charge = strength / 2;
                         charge += random.nextFloat() * 2 - 1;
 
-                        System.out.println((int) charge);
+                        BlockState placeState = ModBlocks.GREEK_FIRE.getDefaultState();
 
-                        getWorld().setBlockState(pos, ModBlocks.GREEK_FIRE.getDefaultState().with(GreekFireBlock.CHARGE, MathHelper.clamp((int) charge, 0, 16)));
+                        System.out.println("Was " + placeState.get(GreekFireBlock.TIMER) + " Now " + (placeState = placeState.with(GreekFireBlock.TIMER, 4)).get(GreekFireBlock.TIMER));
+
+                        getWorld().setBlockState(pos, placeState); // MathHelper.clamp((int) charge, 0, 16)
                     }
                 }
             }
