@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "forgemaster:block/attacca_shard",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "forgemaster:block/attacca_shard"
+    },
+    "facing=south": {
+      "model": "forgemaster:block/attacca_shard",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "forgemaster:block/attacca_shard",
+      "y": 270
+    }
+  }
+}

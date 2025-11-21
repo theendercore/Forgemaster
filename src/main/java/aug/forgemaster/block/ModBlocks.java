@@ -17,7 +17,14 @@ import java.util.List;
 
 public class ModBlocks {
 
-    public static final Block ATTACCA_SHARD = registerBlock("attacca_shard", new AttaccaShardBlock(AbstractBlock.Settings.create().strength(0.5f).sounds(BlockSoundGroup.NETHERITE).noCollision()), new Item.Settings().fireproof().component(DataComponentTypes.LORE, new LoreComponent(List.of(Text.translatable("block.forgemaster.attacca_shard.desc")))));
+    public static final Block ATTACCA_SHARD = registerBlock("attacca_shard",
+            new AttaccaShardBlock(AbstractBlock.Settings.create()
+                    .strength(0.5f)
+                    .sounds(BlockSoundGroup.NETHERITE)
+                    .noCollision()
+                    .luminance(state -> 3)
+                    .emissiveLighting(Blocks::always)
+            ), new Item.Settings().fireproof().component(DataComponentTypes.LORE, new LoreComponent(List.of(Text.translatable("block.forgemaster.attacca_shard.desc")))));
     public static final Block GREEK_FIRE = registerBlock("greek_fire", new GreekFireBlock(AbstractBlock.Settings.copy(Blocks.FIRE)));
 
     private static Block registerBlock(String name, Block block) {
