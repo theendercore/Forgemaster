@@ -5,7 +5,7 @@
     "item.forgemaster.broken_attacca": "Broken Attacca",
     "item.forgemaster.broken_attacca.desc": "Half of the legendary sword, the lone gear clicks loudly without its partner",
     "item.forgemaster.attacca": "Attacca",
-    "item.forgemaster.attacca.desc": "A legendary sword forged by §k#######",
+    "item.forgemaster.attacca.desc": "A legendary sword forged by §k######",
     "enchantment.forgemaster.affannato": "Affannato",
     "enchantment.forgemaster.affannato.desc": "Allows you to use charge from your opponent taking fire damage to shoot fireballs, filling the area with greek fire",
     "enchantment.forgemaster.comodo_con_fuoco": "Comodo con Fuoco",
@@ -18,5 +18,15 @@
   "advancements.forgemaster.get_broken_blade.title": "Shattered Ferocity",
   "advancements.forgemaster.get_broken_blade.description": "Reforge half of the shattered blade, Attacca",
   "advancements.forgemaster.get_attacca.title": "Champion of The Forge",
-  "advancements.forgemaster.get_attacca.description": "Complete the shattered sword, Attacca"
+  "advancements.forgemaster.get_attacca.description": "Complete the shattered sword, Attacca",
+
+  "death.attack.attacca.player": "%1$s was delivered judgement by %2$s",
+  "death.attack.attacca.mob": "%1$s felt the gods wrath from a %2$s",
+  "death.player_attack.attacca.player": "%1$s was cleaved by %2$s",
+  "death.on_fire.acceso.player": "%1$s scorched by %2$s",
+  "death.player_explosion.acceso.player": "%1$s was left breathless by %2$s",
+  "death.fireball.acceso": "%1$s couldnt survive the dance floor",
+  "death.fireball.acceso.player": "%1$s was unable to make it to the party because of %2$s",
+  "death.in_fire.acceso": "%1$s was too hot to handle",
+  "death.on_fire.acceso": "%1$s felt the touch of §k######"
 }
