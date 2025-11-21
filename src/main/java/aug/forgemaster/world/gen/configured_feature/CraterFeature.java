@@ -5,7 +5,9 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.math.random.CheckedRandom;
@@ -93,8 +95,10 @@ public class CraterFeature extends Feature<CraterFeatureConfig> {
 
         var anchor = origin.up(1);
         while (true) {
-            if (!world.getBlockState(anchor.down()).isAir()) {
-                world.setBlockState(anchor, ModBlocks.ATTACCA_SHARD.getDefaultState(), 3);
+            if (!world.getBlockState(anchor.down()).isReplaceable()) {
+                var shard = ModBlocks.ATTACCA_SHARD.getDefaultState()
+                        .with(HorizontalFacingBlock.FACING, Direction.Type.HORIZONTAL.random(random));
+                world.setBlockState(anchor, shard, 3);
                 break;
             }
             anchor = anchor.down();
