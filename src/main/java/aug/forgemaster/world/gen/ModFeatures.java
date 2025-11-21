@@ -6,6 +6,7 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.floatprovider.ConstantFloatProvider;
 import net.minecraft.util.math.floatprovider.UniformFloatProvider;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.RandomOffsetPlacementModifier;
@@ -42,7 +43,7 @@ public class ModFeatures {
     public static void bootstrapPlaced(Registerable<PlacedFeature> c) {
         var feat = c.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         PlacedFeatures.register(c,
-                P_CRATER, feat.getOrThrow(C_CRATER), RandomOffsetPlacementModifier.horizontally(UniformIntProvider.create(1, 5))
+                P_CRATER, feat.getOrThrow(C_CRATER), RandomOffsetPlacementModifier.horizontally(ConstantIntProvider.create(0))
         );
     }
 
