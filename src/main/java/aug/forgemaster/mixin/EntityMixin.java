@@ -46,7 +46,7 @@ public abstract class EntityMixin {
             ItemStack stack = living.getAttacker().getMainHandStack();
 
             if (stack.isOf(ModItems.ATTACCA)) {
-                stack.apply(ModItemComponentTypes.ATTACCA_CHARGE, 0, i -> MathHelper.clamp(i + 1, 0, AttaccaItem.MAX_CHARGE));
+                stack.apply(ModItemComponentTypes.ATTACCA_CHARGE, 0, i -> MathHelper.clamp(i + 1, 0, AttaccaItem.MAX_CAPACITY));
                 living.getAttacker().setStackInHand(Hand.MAIN_HAND, stack);
             }
         }

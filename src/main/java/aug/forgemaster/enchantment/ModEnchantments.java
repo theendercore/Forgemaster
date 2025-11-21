@@ -36,7 +36,7 @@ public class ModEnchantments {
                         2,
                         AttributeModifierSlot.MAINHAND
                 ))
-                        .addNonListEffect(ModEnchantmentEffects.AFFANNATO_STRENGTH, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(1, 0.5f))));
+                        .addNonListEffect(ModEnchantmentEffects.AFFANNATO_STRENGTH, new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(0.5f, 0.25f))));
 
         register(registerable, COMODO_CON_FUOCO, Enchantment.builder(Enchantment.definition(
                         items.getOrThrow(ModTags.Items.FIRED_UP),

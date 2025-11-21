@@ -7,19 +7,20 @@ import aug.forgemaster.item.AttaccaItem;
 import aug.forgemaster.item.ModItems;
 import aug.forgemaster.particle.GreekFireParticle;
 import aug.forgemaster.particle.ModParticles;
-import foundry.veil.api.client.render.rendertype.VeilRenderType;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-import net.minecraft.client.render.*;
+import net.minecraft.client.particle.SweepAttackParticle;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Quaternionf;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -107,6 +108,7 @@ public class ForgemasterClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GREEK_FIRE, RenderLayer.getCutout());
         EntityRendererRegistry.register(ModEntities.GREEK_FIREBALL, GreekFireballEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.GREEK_FIRE, GreekFireParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FIRE_SWEEP, SweepAttackParticle.Factory::new);
         WorldRenderEvents.AFTER_ENTITIES.register(context -> {
             for (Entity entity : context.world().getEntities()) {
                 if (entity instanceof PlayerEntity player && player.getActiveItem().isOf(ModItems.ATTACCA)) {
@@ -122,7 +124,7 @@ public class ForgemasterClient implements ClientModInitializer {
                     matrices.translate((float) -context.camera().getPos().x, (float) -context.camera().getPos().y, (float) -context.camera().getPos().z);
                     matrices.translate(origin.x, origin.y, origin.z);
 
-                    GreekFireballEntityRenderer.render(player.age, MathHelper.clamp(player.getItemUseTime(), 0, 50) / 50f, tickDelta, Objects.requireNonNull(context.consumers()), matrices);
+                    GreekFireballEntityRenderer.render(player.age, MathHelper.clamp((player.getItemUseTime() + tickDelta) / 3, 0, AttaccaItem.MAX_FIREBALL_CHARGE) / AttaccaItem.MAX_FIREBALL_CHARGE, tickDelta, Objects.requireNonNull(context.consumers()), matrices);
                 }
             }
         });

@@ -46,7 +46,7 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
         if (!getWorld().isClient) {
             getWorld().createExplosion(this, getX(), getY(), getZ(), 2, false, World.ExplosionSourceType.NONE);
 
-            float radius = MathHelper.clamp(strength / 4, 0, 10);
+            float radius = strength / 4 + 2;
             int maxRadius = (int) Math.ceil(radius);
 
             for (int x = -maxRadius; x <= maxRadius; x++) {
@@ -73,8 +73,8 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
                         }
                     }
 
-                    if (pos.isWithinDistance(getPos(), 4)) {
-                        getWorld().setBlockState(pos, ModBlocks.GREEK_FIRE.getDefaultState().with(GreekFireBlock.AGE, MathHelper.clamp((int) (strength / 2 + random.nextFloat() * 2 - 1), 0, 16)));
+                    if (pos.isWithinDistance(getPos(), radius)) {
+                        getWorld().setBlockState(pos, ModBlocks.GREEK_FIRE.getDefaultState().with(GreekFireBlock.AGE, MathHelper.clamp((int) (strength / 2 + random.nextFloat() * 4 + 2), 0, 15)));
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
     }
 
     public float charge() {
-        return 1 - MathHelper.clamp((20 - age) / 20f, 0, 1);
+        return MathHelper.clamp((20 - age) / 20f, 0, 1);
     }
 
     @Override
@@ -99,12 +99,12 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
         if (age >= 20) {
             explode();
         } else if (getWorld().isClient) {
-            Vec3d pos = getBoundingBox().getBottomCenter().addRandom(random, 0.5f);
-            Vec3d vel = getVelocity().multiply(-0.5).addRandom(random, 0.1f);
+            Vec3d pos = getBoundingBox().getBottomCenter().addRandom(random, 0.25f);
+            Vec3d vel = getVelocity().multiply(-0.25).addRandom(random, 0.05f);
             getWorld().addParticle(
                     new GreekFireParticleEffect(AttaccaItem.getChargeColor(charge())),
                     true,
-                    pos.x, pos.y, pos.z,
+                    pos.x - vel.x / 2, pos.y - vel.y / 2, pos.z - vel.z / 2,
                     vel.x, vel.y, vel.z
             );
         }

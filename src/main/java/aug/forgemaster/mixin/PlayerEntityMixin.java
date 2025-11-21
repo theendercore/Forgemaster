@@ -4,6 +4,7 @@ import aug.forgemaster.block.ModBlocks;
 import aug.forgemaster.item.AttaccaItem;
 import aug.forgemaster.item.ModItemComponentTypes;
 import aug.forgemaster.item.ModItems;
+import aug.forgemaster.particle.ModParticles;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import net.minecraft.block.BlockState;
@@ -14,6 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -22,6 +24,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
@@ -41,7 +44,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             )
     )
     private void attack(Entity target, CallbackInfo ci, @Local(ordinal = 0) LocalFloatRef damage, @Local ItemStack stack) {
-        if (stack.getItem() instanceof AttaccaItem && stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) >= AttaccaItem.MAX_CHARGE) {
+        if (stack.getItem() instanceof AttaccaItem && stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) >= AttaccaItem.MAX_CAPACITY) {
             damage.set(damage.get() + 6);
         }
     }
@@ -87,5 +90,16 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 getWorld().setBlockState(pos, ModBlocks.GREEK_FIRE.getDefaultState());
             }
         }
+    }
+
+    @ModifyArg(
+            method = "spawnSweepAttackParticles",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/server/world/ServerWorld;spawnParticles(Lnet/minecraft/particle/ParticleEffect;DDDIDDDD)I"
+            )
+    )
+    private ParticleEffect spawnSweepAttackParticles(ParticleEffect particle) {
+        return getWeaponStack().isOf(ModItems.ATTACCA) ? ModParticles.FIRE_SWEEP : particle;
     }
 }

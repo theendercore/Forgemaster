@@ -1,7 +1,7 @@
-// 1.21.1	2025-11-20T17:36:14.018507	Forgemaster/Recipes
+// 1.21.1	2025-11-20T20:50:20.3463566	Forgemaster/Recipes
 98489e7284b95196b9aa8bbacdfdfcb75ed3a748 data\forgemaster\recipe\attacca_shard.json
-bbb737cfe101da7b98b387b04978700ee74053cb data\forgemaster\recipe\broken_attacca.json
 c55b768a424f3b53f78d341be1ef460933c042e5 data\forgemaster\advancement\recipes\misc\attacca_shard.json
-8fee6363a35a91fe30cef735b070f6cdc06c120d data\forgemaster\advancement\recipes\tools\broken_attacca.json
+bbb737cfe101da7b98b387b04978700ee74053cb data\forgemaster\recipe\broken_attacca.json
 ae2d1188d148b5d1ff9ce7432b6aed2d6177f56c data\forgemaster\recipe\attacca.json
 5494616f0427a4a3bd69f87832dc778d6e6dda0e data\forgemaster\advancement\recipes\combat\attacca.json
+8fee6363a35a91fe30cef735b070f6cdc06c120d data\forgemaster\advancement\recipes\tools\broken_attacca.json

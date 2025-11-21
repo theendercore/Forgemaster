@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
 public class AttaccaItem extends SwordItem implements DualModelItem {
-    public static final int MAX_CHARGE = 50;
+    public static final int MIN_FIREBALL_CHARGE = 4, MAX_FIREBALL_CHARGE = 16, MAX_CAPACITY = 32;
 
     public AttaccaItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
@@ -47,7 +47,7 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
             Vec3d origin = user.getEyePos().add(user.getRotationVector()).add(0, 0.25f, 0);
             Vec3d pos = origin.addRandom(user.getRandom(), 1.5f);
             world.addParticle(
-                    new GreekFireParticleEffect(getChargeColor(1 - MathHelper.clamp((72000 - remainingUseTicks) / 50f, 0, 1))),
+                    new GreekFireParticleEffect(getChargeColor(1 - MathHelper.clamp((72000f - remainingUseTicks) / 3 / MAX_FIREBALL_CHARGE, 0, 1))),
                     true,
                     pos.x, pos.y, pos.z,
                     (origin.x - pos.x) / 4, (origin.y - pos.y) / 4, (origin.z - pos.z) / 4
@@ -57,7 +57,7 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (world.isClient && selected && stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) >= MAX_CHARGE) {
+        if (world.isClient && selected && stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) >= MAX_CAPACITY) {
             world.addParticle(
                     ParticleTypes.FLAME,
                     entity.getParticleX(1), entity.getRandomBodyY(), entity.getParticleZ(1),
@@ -68,7 +68,11 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.addStatusEffect(new StatusEffectInstance(ModEffects.SPARKED, 200));
+        if (stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0) >= AttaccaItem.MAX_CAPACITY) {
+            target.addStatusEffect(new StatusEffectInstance(ModEffects.SPARKED, 300));
+            stack.set(ModItemComponentTypes.ATTACCA_CHARGE, 0);
+        }
+
         target.setOnFireFor(100);
 
         return true;
@@ -78,10 +82,8 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         int charge = stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0);
 
-        if (charge >= 10) {
-            if (ModEnchantmentEffects.getAffannato(stack) > 0) {
-                return 72000;
-            }
+        if (charge >= MIN_FIREBALL_CHARGE && ModEnchantmentEffects.getAffannato(stack) > 0) {
+            return 72000;
         }
 
         return 0;
@@ -107,9 +109,9 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         int charge = stack.getOrDefault(ModItemComponentTypes.ATTACCA_CHARGE, 0);
-        int usedCharge = MathHelper.clamp(72000 - remainingUseTicks, 0, charge);
+        int usedCharge = MathHelper.clamp((72000 - remainingUseTicks) / 3, 0, Math.min(charge, MAX_FIREBALL_CHARGE));
 
-        if (usedCharge >= 10) {
+        if (usedCharge >= MIN_FIREBALL_CHARGE) {
             float strength = ModEnchantmentEffects.getAffannato(stack);
 
             if (strength > 0) {
@@ -139,7 +141,7 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
             return super.getItemBarStep(stack);
         }
 
-        return MathHelper.clamp(Math.round(charge * 13f / MAX_CHARGE), 0, 13);
+        return MathHelper.clamp(Math.round(charge * 13f / MAX_CAPACITY), 0, 13);
     }
 
     public static int getChargeColor(float blend) {
@@ -154,7 +156,7 @@ public class AttaccaItem extends SwordItem implements DualModelItem {
             return super.getItemBarColor(stack);
         }
 
-        if (charge >= MAX_CHARGE) {
+        if (charge >= MAX_CAPACITY) {
             return getChargeColor((float) Math.sin(GLFW.glfwGetTime() * 4) / 2 + 0.5f);
         }
 
