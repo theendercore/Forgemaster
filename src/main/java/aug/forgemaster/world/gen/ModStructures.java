@@ -1,10 +1,10 @@
 package aug.forgemaster.world.gen;
 
+import aug.forgemaster.util.ModTags;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.structure.StructureSet;
 import net.minecraft.structure.pool.StructurePool;
 import net.minecraft.structure.pool.StructurePoolElement;
@@ -31,10 +31,10 @@ public class ModStructures {
         var pools = c.getRegistryLookup(RegistryKeys.TEMPLATE_POOL);
 
         c.register(CRATER, new JigsawStructure(
-                new Structure.Config(biomes.getOrThrow(BiomeTags.IS_OVERWORLD)),
+                new Structure.Config(biomes.getOrThrow(ModTags.Biomes.HAS_CRATER)),
                 pools.getOrThrow(CRATER_POOL), 3,
                 ConstantHeightProvider.create(YOffset.fixed(0)),
-                true,
+                false,
                 Heightmap.Type.WORLD_SURFACE_WG
         ));
     }
@@ -43,7 +43,7 @@ public class ModStructures {
         var struct = c.getRegistryLookup(RegistryKeys.STRUCTURE);
         c.register(CRATER_SET, new StructureSet(
                 struct.getOrThrow(CRATER),
-                new RandomSpreadStructurePlacement(12, 10, SpreadType.LINEAR, 245)
+                new RandomSpreadStructurePlacement(50, 35, SpreadType.LINEAR, 328438)
         ));
     }
 

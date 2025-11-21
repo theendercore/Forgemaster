@@ -30,7 +30,8 @@ public class CraterFeature extends Feature<CraterFeatureConfig> {
         var world = context.getWorld();
         var config = context.getConfig();
 
-        var random = new ChunkRandom(new CheckedRandom(world.getSeed()));
+        var chunkRandom = new ChunkRandom(new CheckedRandom(world.getSeed()));
+        var random = context.getRandom();
 
         var width = config.width.get(random);
         var widthSqr = width * width;
@@ -42,7 +43,7 @@ public class CraterFeature extends Feature<CraterFeatureConfig> {
                 widthSqr, height,
                 config.ringSize.get(random), config.ringHeight.get(random), config.thickness.get(random),
                 config.textureNoiseMultiplier.get(random), config.offsetNoiseMultiplier.get(random),
-                DoublePerlinNoiseSampler.create(random, -2, 1.0), random
+                DoublePerlinNoiseSampler.create(chunkRandom, -2, 1.0), chunkRandom
         );
 
         var area = BlockPos.iterate(origin.add(width, height, width), origin.add(-width, -height, -width));

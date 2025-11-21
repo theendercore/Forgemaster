@@ -1,7 +1,7 @@
-// 1.21.1	2025-11-19T17:56:39.640166115	Forgemaster/DynReg
+// 1.21.1	2025-11-21T18:03:47.152488368	Forgemaster/DynReg
 c1aa7fa7d2255332ea034272f742f98c2fa4e139 data/forgemaster/enchantment/fire_engine.json
 7aa0ff9efefcefe16a3fba36f5acf42fc4fe83b0 data/forgemaster/worldgen/placed_feature/crater.json
-eabd60fbc77ed024e99704135fd5d42896f20322 data/forgemaster/worldgen/structure/crater.json
-3aabd0f558f768fdd2f5300b16c6aed9c7e00f88 data/forgemaster/worldgen/configured_feature/crater.json
+ae3320c8e6d42a040e6d0ec034ce810b1d4ab859 data/forgemaster/worldgen/structure/crater.json
+c160d2044aa3d34676f2f269cfd21ee9c3eb8a18 data/forgemaster/worldgen/configured_feature/crater.json
 66cabbc4292dc6b47258fb0fa0c6d397dc783100 data/forgemaster/worldgen/template_pool/crater.json
-0b3e0729d4e26bbb042e1eb5ea7c26b34c850139 data/forgemaster/worldgen/structure_set/craters.json
+c9a9c7b6d6d015cc35b2c77a8044bccee0d2f9d2 data/forgemaster/worldgen/structure_set/craters.json

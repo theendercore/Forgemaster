@@ -1,0 +1,52 @@
+{
+  "values": [
+    {
+      "id": "#c:is_birch_forest",
+      "required": false
+    },
+    {
+      "id": "#c:is_desert",
+      "required": false
+    },
+    {
+      "id": "#c:is_flower_forest",
+      "required": false
+    },
+    {
+      "id": "#c:is_forest",
+      "required": false
+    },
+    {
+      "id": "#c:is_jungle",
+      "required": false
+    },
+    {
+      "id": "#c:is_mushroom",
+      "required": false
+    },
+    {
+      "id": "#c:is_old_growth",
+      "required": false
+    },
+    {
+      "id": "#c:is_plains",
+      "required": false
+    },
+    {
+      "id": "#c:is_savanna",
+      "required": false
+    },
+    {
+      "id": "#c:is_snowy_plains",
+      "required": false
+    },
+    {
+      "id": "#c:is_spooky",
+      "required": false
+    },
+    {
+      "id": "#c:is_taiga",
+      "required": false
+    }
+  ]
+}

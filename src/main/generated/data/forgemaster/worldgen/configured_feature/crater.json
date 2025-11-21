@@ -1,14 +1,42 @@
 {
   "type": "forgemaster:crater",
   "config": {
-    "block_clear_rage": 12,
+    "block_clear_rage": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 24,
+      "min_inclusive": 12
+    },
     "cant_replaceable": "#minecraft:geode_invalid_blocks",
-    "height": 6,
-    "offset_noise_multiplier": 0.25,
-    "ring_height": 2.0,
+    "height": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 10,
+      "min_inclusive": 6
+    },
+    "offset_noise_multiplier": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 0.3,
+      "min_inclusive": 0.2
+    },
+    "ring_height": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 2.0,
+      "min_inclusive": 1.75
+    },
     "ring_size": 5.0,
-    "texture_noise_multiplier": 1.0,
-    "thickness": 0.5,
-    "width": 20
+    "texture_noise_multiplier": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 1.1,
+      "min_inclusive": 0.8
+    },
+    "thickness": {
+      "type": "minecraft:uniform",
+      "max_exclusive": 0.5,
+      "min_inclusive": 0.35
+    },
+    "width": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 28,
+      "min_inclusive": 16
+    }
   }
 }
