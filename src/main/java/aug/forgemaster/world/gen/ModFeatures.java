@@ -43,7 +43,7 @@ public class ModFeatures {
     public static void bootstrapPlaced(Registerable<PlacedFeature> c) {
         var feat = c.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         PlacedFeatures.register(c,
-                P_CRATER, feat.getOrThrow(C_CRATER), RandomOffsetPlacementModifier.horizontally(ConstantIntProvider.create(0))
+                P_CRATER, feat.getOrThrow(C_CRATER), RandomOffsetPlacementModifier.horizontally(ConstantIntProvider.create(12))
         );
     }
 
