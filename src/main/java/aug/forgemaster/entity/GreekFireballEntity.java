@@ -74,14 +74,7 @@ public class GreekFireballEntity extends ExplosiveProjectileEntity {
                     }
 
                     if (pos.isWithinDistance(getPos(), 4)) {
-                        float charge = strength / 2;
-                        charge += random.nextFloat() * 2 - 1;
-
-                        BlockState placeState = ModBlocks.GREEK_FIRE.getDefaultState();
-
-                        System.out.println("Was " + placeState.get(GreekFireBlock.TIMER) + " Now " + (placeState = placeState.with(GreekFireBlock.TIMER, 4)).get(GreekFireBlock.TIMER));
-
-                        getWorld().setBlockState(pos, placeState); // MathHelper.clamp((int) charge, 0, 16)
+                        getWorld().setBlockState(pos, ModBlocks.GREEK_FIRE.getDefaultState().with(GreekFireBlock.AGE, MathHelper.clamp((int) (strength / 2 + random.nextFloat() * 2 - 1), 0, 16)));
                     }
                 }
             }

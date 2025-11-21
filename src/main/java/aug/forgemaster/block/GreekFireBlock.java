@@ -19,22 +19,21 @@ import net.minecraft.world.WorldAccess;
 
 public class GreekFireBlock extends AbstractFireBlock {
     public static final MapCodec<GreekFireBlock> CODEC = createCodec(GreekFireBlock::new);
-    public static final IntProperty TIMER = Properties.AGE_15;
+    public static final IntProperty AGE = Properties.AGE_15;
 
     public GreekFireBlock(Settings settings) {
         super(settings, 1);
-        setDefaultState(getStateManager().getDefaultState().with(TIMER, 2));
+        setDefaultState(getStateManager().getDefaultState().with(AGE, 2));
     }
 
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int charge = state.get(TIMER);
+        int charge = state.get(AGE);
 
-        if (charge <= 1) {
+        if (charge == 0) {
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
         } else {
-            System.out.println("Decreasing charge " + charge);
-            world.setBlockState(pos, state.with(TIMER, charge - 1), Block.NOTIFY_ALL);
+            world.setBlockState(pos, state.with(AGE, charge - 1), Block.NOTIFY_ALL);
             world.scheduleBlockTick(pos, this, 20);
         }
     }
@@ -50,7 +49,7 @@ public class GreekFireBlock extends AbstractFireBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(TIMER);
+        builder.add(AGE);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class GreekFireBlock extends AbstractFireBlock {
     protected BlockState getStateForNeighborUpdate(
             BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos
     ) {
-        return canPlaceAt(state, world, pos) ? getDefaultState() : Blocks.AIR.getDefaultState();
+        return canPlaceAt(state, world, pos) ? state : Blocks.AIR.getDefaultState();
     }
 
     @Override
