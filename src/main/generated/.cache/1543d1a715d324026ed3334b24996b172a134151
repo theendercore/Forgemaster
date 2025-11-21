@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-20T20:50:20.344356	Forgemaster/Advancements
-7a3c86d1bee0ab7d233b57117e972445fae07612 data\forgemaster\advancement\get_attacca.json
-58b4f5fa63ff572d7f3e43289c3dc7be1c745729 data\forgemaster\advancement\get_broken.json
-ce0bb7dac05733831949525c366ab3d943ae702f data\forgemaster\advancement\get_shard.json
+// 1.21.1	2025-11-21T20:27:39.250851682	Forgemaster/Advancements
+58b4f5fa63ff572d7f3e43289c3dc7be1c745729 data/forgemaster/advancement/get_broken.json
+7a3c86d1bee0ab7d233b57117e972445fae07612 data/forgemaster/advancement/get_attacca.json
+ce0bb7dac05733831949525c366ab3d943ae702f data/forgemaster/advancement/get_shard.json

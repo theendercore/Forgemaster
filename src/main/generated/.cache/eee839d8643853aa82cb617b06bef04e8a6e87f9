@@ -1,2 +1,3 @@
-// 1.21.1	2025-11-21T19:13:08.490470603	Forgemaster/Tags for minecraft:enchantment
-904a0fc0938d5023e5ede1fd61fa45d11ba14f75 data/minecraft/tags/enchantment/in_enchanting_table.json
+// 1.21.1	2025-11-21T20:27:39.251717376	Forgemaster/Tags for minecraft:enchantment
+e8a29de74ac03cffe86e12f59cf05030bbbf0b72 data/minecraft/tags/enchantment/in_enchanting_table.json
+9acd2367ea8fe4784b7043ab38454c4ff6e6cb68 data/forgemaster/tags/enchantment/temperature_based.json

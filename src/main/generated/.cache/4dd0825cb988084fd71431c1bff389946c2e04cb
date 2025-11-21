@@ -1,4 +1,12 @@
-// 1.21.1	2025-11-21T19:13:08.490637239	Forgemaster/Model Definitions
+// 1.21.1	2025-11-21T20:27:39.251949967	Forgemaster/Model Definitions
 c6eead3beee4aad2e08d9e500a175e1066cd6979 assets/forgemaster/blockstates/attacca_shard.json
 5404b42f219e11dec0726b4a91962c7806ed4b56 assets/forgemaster/models/item/broken_attacca.json
+87a8021b62097511e3496b2d3fe11c3a0a360e7c assets/forgemaster/models/block/greek_fire_side_alt0.json
+d31b5640bf269522be5d589da60517d7788a278d assets/forgemaster/models/block/greek_fire_side0.json
 677f7b12fd803846bd3c6af039edb982e3871204 assets/forgemaster/models/item/attacca_shard.json
+dd0fa5d0c453f30dc1e24561b71ef3387b91d924 assets/forgemaster/models/item/greek_fire.json
+e19ffa6d5d41c2a5c967685f6aa20288212ac6e0 assets/forgemaster/models/block/greek_fire_side1.json
+65dba4fac483871afd9bbad8aff85f48f0e6b22d assets/forgemaster/models/block/greek_fire_side_alt1.json
+e95d659dc436dc954a13fbfe88f5b7989413159f assets/forgemaster/models/block/greek_fire_floor1.json
+671ab43fb9c61332292f60fff8138aeebd108114 assets/forgemaster/models/block/greek_fire_floor0.json
+79ced6a4931d5368533a5f121e8ee9ef293126c5 assets/forgemaster/blockstates/greek_fire.json

@@ -1,7 +1,8 @@
-// 1.21.1	2025-11-21T19:13:08.490102154	Forgemaster/DynReg
-c1aa7fa7d2255332ea034272f742f98c2fa4e139 data/forgemaster/enchantment/fire_engine.json
+// 1.21.1	2025-11-21T20:27:39.251134329	Forgemaster/DynReg
 f2584f6509ce23f1759a8a400d9bff0736baa123 data/forgemaster/worldgen/placed_feature/crater.json
+da16e6c63697125a5052bd7dd02369721ca37c88 data/forgemaster/enchantment/affannato.json
 ae3320c8e6d42a040e6d0ec034ce810b1d4ab859 data/forgemaster/worldgen/structure/crater.json
 c160d2044aa3d34676f2f269cfd21ee9c3eb8a18 data/forgemaster/worldgen/configured_feature/crater.json
+39cd87449e599a536f2cbef92b58ed095372faac data/forgemaster/enchantment/comodo_con_fuoco.json
 66cabbc4292dc6b47258fb0fa0c6d397dc783100 data/forgemaster/worldgen/template_pool/crater.json
 c9a9c7b6d6d015cc35b2c77a8044bccee0d2f9d2 data/forgemaster/worldgen/structure_set/craters.json
