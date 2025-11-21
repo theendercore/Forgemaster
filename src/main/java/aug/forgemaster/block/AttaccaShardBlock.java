@@ -77,6 +77,6 @@ public class AttaccaShardBlock extends HorizontalFacingBlock implements Waterlog
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(4, 0, 4, 12, 4, 12);
+        return Block.createCuboidShape(4, 0, 4, 12, 6, 12);
     }
 }
